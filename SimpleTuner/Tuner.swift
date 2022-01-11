@@ -145,10 +145,10 @@ private let frequencies: [Float] = [
     }
     
     func tap_handler(freq: [Float], amp: [Float]) -> Void {
-        print("freq real: %f\n", freq[0])
-        print("freq imag: %f\n", freq[1])
-        print(" amp real: %f\n", amp[0])
-        print(" amp imag: %f\n", amp[1])
+#if DEBUG
+        print("freq -- real_\(freq[0]) -- imag_\(freq[1])" )
+        print("amp -- real_\(amp[0]) -- imag_\(amp[1])")
+#endif
         if let d = self.delegate {
             if amp[0] > self.threshold
             {
@@ -164,6 +164,8 @@ private let frequencies: [Float] = [
     
     /**
      Exponential smoothing:
+     指数平滑算法
+     smoothing 平滑常数
      https://en.wikipedia.org/wiki/Exponential_smoothing
      */
     fileprivate func smooth(_ value: Float) -> Float {
@@ -179,6 +181,9 @@ private let frequencies: [Float] = [
         return frequency
     }
     
+    /**
+     Transfer frequency and amplitude to TunerOutput
+    */
     static func newOutput(_ frequency: Float, _ amplitude: Float) -> TunerOutput {
         let output = TunerOutput()
         

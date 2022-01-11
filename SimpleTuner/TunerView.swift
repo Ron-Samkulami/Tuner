@@ -66,7 +66,7 @@ class TunerView: UIView {
   
   override func layoutSubviews() {
     super.layoutSubviews()
-    titleLabel.frame = CGRect(x: 0.0, y: 30, width: bounds.width, height: bounds.height / 18.52)
+    titleLabel.frame = CGRect(x: 0.0, y: 50, width: bounds.width, height: bounds.height / 18.52)
     gaugeView.frame = CGRect(x: 0, y: ((bounds).height - (bounds).width) / 2.0, width: (bounds).width, height: (bounds).width)
     pitchTitleLabel.frame = CGRect(x: 0, y: gaugeView.frame.origin.y + 0.85 * (gaugeView.bounds).height, width: (bounds).width, height: (bounds).height / 23.82)
     pitchLabel.frame = CGRect(x: 0, y: pitchTitleLabel.frame.origin.y + pitchTitleLabel.frame.height, width: bounds.width, height: bounds.height / 18.52)   
